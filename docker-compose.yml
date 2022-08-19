@@ -5,6 +5,7 @@ services:
     image: mysql
     ports:
       - 3306:3306
+    command: --default-authentication-plugin=mysql_native_password
     volumes:
       - db:/var/lib/mysql
     environment:
@@ -12,6 +13,7 @@ services:
       MYSQL_DATABASE: goalstack
       MYSQL_USER: goalstack
       MYSQL_PASSWORD: goalstack
+      MYSQL_HOST: "%"
     restart: always
 
   api:
