@@ -1,0 +1,15 @@
+version: '3.2'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - 8080:8080
+    volumes:
+      - /usr/app/node_modules
+      - .:/usr/app
