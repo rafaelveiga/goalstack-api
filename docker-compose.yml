@@ -1,6 +1,17 @@
 version: '3.2'
 
 services:
+  mongodb:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+
   api:
     build:
       context: .
@@ -10,6 +21,11 @@ services:
       - .env
     ports:
       - 8080:8080
+    depends_on:
+      - mongodb
     volumes:
       - /usr/app/node_modules
       - .:/usr/app
+
+volumes:
+  mongodb:
