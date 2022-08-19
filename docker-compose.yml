@@ -1,16 +1,18 @@
 version: '3.2'
 
 services:
-  mongodb:
-    image: mongo
-    restart: always
+  db:
+    image: mysql
     ports:
-      - 27017:27017
+      - 3306:3306
     volumes:
-      - mongodb:/data/db
+      - db:/var/lib/mysql
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=root
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: goalstack
+      MYSQL_USER: goalstack
+      MYSQL_PASSWORD: goalstack
+    restart: always
 
   api:
     build:
@@ -22,10 +24,10 @@ services:
     ports:
       - 8080:8080
     depends_on:
-      - mongodb
+      - db
     volumes:
       - /usr/app/node_modules
       - .:/usr/app
 
 volumes:
-  mongodb:
+  db:
