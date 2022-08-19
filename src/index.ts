@@ -3,14 +3,12 @@ import express from "express";
 import dotenv from "dotenv";
 dotenv.config();
 
-import DataSource from "./database";
+import GoalStackRouter from "./modules/GoalStack/routes";
 
 const app = express();
 const port = process.env.PORT;
 
-app.get("/", (req, res) => {
-  res.send("Express + TypeScript Server");
-});
+app.use("/goal-stack", GoalStackRouter);
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at https://localhost:${port}`);

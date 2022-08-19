@@ -12,12 +12,11 @@ const AppDataSource = new DataSource({
   database: process.env.DB_NAME,
   entities: [Goal, GoalType, GoalStack],
   synchronize: true,
-  logging: true,
 });
 
 AppDataSource.initialize()
   .then(() => {
-    console.log("Data Source hoas been initialized!");
+    console.log("Data Source has been initialized!");
   })
   .catch((err) => {
     console.error("Error during Data Source initialization", err);

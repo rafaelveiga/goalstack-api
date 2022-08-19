@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  PrimaryGeneratedColumn,
+} from "typeorm";
+import { Goal } from "./Goal";
 
 @Entity()
 export class GoalStack {
@@ -10,4 +17,8 @@ export class GoalStack {
 
   @Column()
   goalStackDescription: string;
+
+  @ManyToMany(() => Goal)
+  @JoinTable()
+  goals: Goal[];
 }
