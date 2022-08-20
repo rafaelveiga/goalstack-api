@@ -6,6 +6,8 @@ import GoalStackRouter from "./modules/GoalStack/routes";
 class App {
   public async start() {
     const app = express();
+    app.use(express.json());
+
     const port = process.env.PORT;
 
     app.use("/goal-stack", GoalStackRouter);
