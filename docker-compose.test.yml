@@ -1,0 +1,34 @@
+version: '3.2'
+
+services:
+  db:
+    image: mysql
+    ports:
+      - 3306:3306
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: goalstack
+      MYSQL_USER: goalstack
+      MYSQL_PASSWORD: goalstack
+      MYSQL_HOST: "%"
+    restart: always
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    env_file:
+      - .env
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    volumes:
+      - /usr/app/node_modules
+      - .:/usr/app
+
+volumes:
+  db:

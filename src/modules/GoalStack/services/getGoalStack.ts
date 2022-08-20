@@ -1,5 +1,5 @@
-import AppDataSource from "src/database";
-import { GoalStack } from "src/database/entities/GoalStack";
+import AppDataSource from "../../../database";
+import { GoalStack } from "../../../database/entities/GoalStack";
 
 async function getGoalStack() {
   const data = await AppDataSource.manager.find(GoalStack, {
