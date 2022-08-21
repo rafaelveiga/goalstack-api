@@ -1,6 +1,6 @@
-import AppDataSource from "src/database";
-import { Goal } from "src/database/entities/Goal";
-import { GoalStack } from "src/database/entities/GoalStack";
+import AppDataSource from "../../../database";
+import { Goal } from "../../../database/entities/Goal";
+import { GoalStack } from "../../../database/entities/GoalStack";
 
 async function createGoalStack(goalStack: GoalStack): Promise<GoalStack> {
   const newGoalStack = new GoalStack();

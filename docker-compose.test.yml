@@ -10,7 +10,7 @@ services:
       - db:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: goalstack
+      MYSQL_DATABASE: goalstack_test
       MYSQL_USER: goalstack
       MYSQL_PASSWORD: goalstack
       MYSQL_HOST: "%"
