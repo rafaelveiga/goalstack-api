@@ -5,11 +5,6 @@ import AppDataSource from "../../../database";
 let app;
 beforeAll(async () => {
   app = await new App().start();
-  await AppDataSource.initialize();
-  const queryRunner = AppDataSource.createQueryRunner();
-
-  await queryRunner.clearTable("goal_stack");
-  await queryRunner.clearTable("goal");
 });
 
 describe("GoalStack endpoints", () => {

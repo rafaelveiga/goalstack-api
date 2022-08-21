@@ -6,7 +6,7 @@
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify src/index.ts",
-    "test": "ENV_FILE=./.env.test jest",
+    "test": "jest",
     "test:run": "docker-compose -f docker-compose.test.yml build && docker-compose -f docker-compose.test.yml up --renew-anon-volumes",
     "start:run": "docker-compose -f docker-compose.yml build && docker-compose -f docker-compose.yml up --renew-anon-volumes"
   },
